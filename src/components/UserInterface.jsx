@@ -91,11 +91,11 @@ function UserInterface({ currentBlock, setCurrentBlock }) {
                     <div className="bg-gray-800 bg-opacity-90 p-4 rounded-lg max-h-[calc(100vh-100px)] overflow-scroll pointer-events-auto">
 
                         <h1 className="text-white text-2xl font-bold mb-4">
-                         Welcome to my Super Simple City Builder
+                         Welcome to  village  Builder or designer
                         </h1>
 
                         <p className="text-white text-lg mb-4">
-                            Press the <span className="font-bold">Idle Mode</span> button to start building your city. This will toggle you to <span className="font-bold">Build Mode</span> where you can place blocks on the grid.
+                            Press the <span className="font-bold"> start Building</span> button to start building your city. This will toggle you to <span className="font-bold">Build Mode</span> where you can place blocks on the grid.
                         </p>
 
                         <p className="text-white text-lg mb-4">
@@ -107,16 +107,12 @@ function UserInterface({ currentBlock, setCurrentBlock }) {
                         </p>
 
                         <p className="text-white text-lg mb-4">
-                            Some buildings earn or cost you money over time. Hover over a block icon to reavel the cost or income.
+                            Activities will cost the  money for building. Hover over a block icon to reavel the cost.
                         </p>
 
-                        <p className="text-white text-lg mb-4">
-                            Note: Clicking the highrise icon will generate a new highrise style.
-                        </p>
+                        
 
-                        <p className="text-white text-lg mb-4">
-                            Check out more of my work at <a href="https://daviddylancarr.com" target="_blank" className="text-blue-400 hover:text-blue-200">daviddylancarr.com</a>
-                        </p>
+                        
 
                     </div>
                 </div>
