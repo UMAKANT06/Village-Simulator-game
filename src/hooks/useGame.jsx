@@ -19,7 +19,7 @@ const  getRandomNumber=(min, max)=> {
 
 export const useGame = create((set) => {
 
-    const gridSize = 100
+    const gridSize = 500
 
     return {
         gridSize: gridSize,
@@ -48,7 +48,7 @@ export const useGame = create((set) => {
         resetCity: () => {
             set({
                 playerCurrency: getRandomNumber(500000, 10000000),
-                playerBlocks: createEmptyGrid(10),
+                playerBlocks: createEmptyGrid(100),
             })
         }
 

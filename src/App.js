@@ -24,6 +24,7 @@ import {
 } from '@react-three/postprocessing'
 
 import { useGame } from './hooks/useGame'
+import Front_tree_one from './components/test'
 
 // import { useControls } from 'leva'
 import UserInterface from './components/UserInterface'
@@ -150,6 +151,7 @@ function App() {
               shadow-camera-bottom={-20}
               shadow-camera-left={-20}
               />
+              <Front_tree_one/>
             <Environment 
               files={"park_parking_2k.hdr"}
               />
@@ -162,7 +164,7 @@ function App() {
                   />
               </EffectComposer>
             }
-            <fog attach="fog" args={["#ebeff2", 10, 60]} />
+            {/* <fog attach="fog" args={["#ebeff2", 10, 60]} /> */}
 
 
             {playerBlocks.map((row, x) => {
