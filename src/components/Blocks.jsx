@@ -389,7 +389,7 @@ function DollarSign({ isVisible, amount }) {
       config: { tension: 120, friction: 14 },
     });
 
-    const amountString = amount > 0 ? `$${amount}` : `-$${Math.abs(amount)}`
+    const amountString = amount > 0 ? `Rs${amount}` : `Rs${Math.abs(amount)}`
 
     return (
       <a.group position-y={animationProps.y} visible={isVisible}>

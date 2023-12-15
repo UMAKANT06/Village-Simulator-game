@@ -11,6 +11,12 @@ const createEmptyGrid = (size) => {
   return grid
 }
 
+
+const  getRandomNumber=(min, max)=> {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+
 export const useGame = create((set) => {
 
     const gridSize = 100
@@ -22,7 +28,7 @@ export const useGame = create((set) => {
         setPlayerMode: (mode) => set({ playerMode: mode }),
         togglePlayerMode: () => set((prev) => ({ playerMode: prev.playerMode === 'idle' ? 'build' : 'idle' })),
 
-        playerCurrency: getLocalStorage('playerCurrency') || 100,
+        playerCurrency: getLocalStorage('playerCurrency') || getRandomNumber(500000, 10000000),
         setPlayerCurrency: (currency) => set({ playerCurrency: currency }),
         addPlayerCurrency: (amount) => set((prev) => ({ playerCurrency: prev.playerCurrency + amount })),
 
@@ -41,7 +47,7 @@ export const useGame = create((set) => {
 
         resetCity: () => {
             set({
-                playerCurrency: 100,
+                playerCurrency: getRandomNumber(500000, 10000000),
                 playerBlocks: createEmptyGrid(10),
             })
         }

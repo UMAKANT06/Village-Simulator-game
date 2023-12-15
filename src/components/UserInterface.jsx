@@ -1,11 +1,11 @@
 import {
     useState
 } from 'react'
-import { 
+import {
     Canvas,
 } from 'react-three-fiber'
 import { useGame } from '../hooks/useGame'
-import { 
+import {
     RenderBlock,
 } from './Blocks'
 import {
@@ -69,29 +69,29 @@ function UserInterface({ currentBlock, setCurrentBlock }) {
         <div className="absolute inset-0 w-full h-screen pointer-events-none z-10">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 space-x-4 p-4 flex items-center">
                 <span className={`text-white font-bold py-2 px-4 rounded ${playerCurrency > 0 ? 'bg-green-500' : 'bg-red-500'}`}>
-                    ${playerCurrency}
+                    Rs {playerCurrency}
                 </span>
                 <button
                     className='pointer-events-auto bg-gray-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-max uppercase'
                     onClick={togglePlayerMode}
-                    >
+                >
                     {playerMode} Mode
                 </button>
                 <button
                     className='pointer-events-auto bg-gray-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-max uppercase'
                     onClick={() => setShowInfo(!showInfo)}
-                    >
+                >
                     <TbInfoHexagon className='h-[24px] w-[24px]' />
                 </button>
             </div>
 
-            { showInfo && (
+            {showInfo && (
 
                 <div className="absolute  w-full max-w-lg top-[50px] left-1/2 -translate-x-1/2 space-x-4 p-4 flex items-center">
                     <div className="bg-gray-800 bg-opacity-90 p-4 rounded-lg max-h-[calc(100vh-100px)] overflow-scroll pointer-events-auto">
 
                         <h1 className="text-white text-2xl font-bold mb-4">
-                         Welcome to  village  Builder or designer
+                            Welcome to  village  Builder or designer
                         </h1>
 
                         <p className="text-white text-lg mb-4">
@@ -107,56 +107,56 @@ function UserInterface({ currentBlock, setCurrentBlock }) {
                         </p>
 
                         <p className="text-white text-lg mb-4">
-                            Activities will cost the  money for building. Hover over a block icon to reavel the cost.
+                            Activities will cost the  money for building. Hover over a block icon to reavel the cost.But when u go on that block icon u will see the cost written in green or red which means that much amount it will gain or loose per second
                         </p>
 
-                        
 
-                        
+
+
 
                     </div>
                 </div>
-                    
+
 
             )}
 
             <div className={`block-list ${mobileClasses.join(" ")} ${desktopClasses.join(" ")}`}>
 
-                { playerMode === "build" && ( blocks.map((block, index) => {
+                {playerMode === "build" && (blocks.map((block, index) => {
                     return (
-                    <div 
-                        key={index}
-                        className={`group ${buttonMobileClasses.join(" ")} ${buttonDesktopClasses.join(" ")} ${currentBlock === block.name ? "border-blue-500" : "border-white"}`}
-                        onClick={() => setCurrentBlock({
-                            name: block.name,
-                            settings: calculateSettings(block.name)
-                        })}>
-                        <Canvas
-                        className="h-full w-full"
-                        camera={{ position: [0, 2, 3.5], fov: 40 }}
-                        >
-                            <ambientLight intensity={0.5} />
-                            <RenderBlock block={{
+                        <div
+                            key={index}
+                            className={`group ${buttonMobileClasses.join(" ")} ${buttonDesktopClasses.join(" ")} ${currentBlock === block.name ? "border-blue-500" : "border-white"}`}
+                            onClick={() => setCurrentBlock({
+                                name: block.name,
+                                settings: calculateSettings(block.name)
+                            })}>
+                            <Canvas
+                                className="h-full w-full"
+                                camera={{ position: [0, 2, 3.5], fov: 40 }}
+                            >
+                                <ambientLight intensity={0.5} />
+                                <RenderBlock block={{
                                     block: block.name,
                                     x: 0,
                                     z: 0
-                                }} 
-                                yOffset={0}
+                                }}
+                                    yOffset={0}
                                 />
-                        </Canvas>
-                        <div className="absolute bottom-0 left-0 w-full h-6 bg-gray-800 bg-opacity-50 flex items-center justify-center">
-                            <span className="text-white text-md font-bold group-hover:hidden">
-                                {block.title}
-                            </span>
-                            <span className="text-white text-md font-bold hidden group-hover:inline">
-                                ${block.cost}
-                            </span>
-                            <span className={`${block.currencyPerPeriod > 0 ? 'text-green-300' : 'text-red-300' } text-[12px] ml-2 hidden group-hover:inline`}>
-                                ${block.currencyPerPeriod}/{block.currencyPeriod}s
-                            </span>
+                            </Canvas>
+                            <div className="absolute bottom-0 left-0 w-full h-6 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+                                <span className="text-white text-md font-bold group-hover:hidden">
+                                    {block.title}
+                                </span>
+                                <span className="text-white text-md font-bold hidden group-hover:inline">
+                                    Rs{block.cost}
+                                </span>
+                                <span className={`${block.currencyPerPeriod > 0 ? 'text-green-300' : 'text-red-300'} text-[12px] ml-2 hidden group-hover:inline`}>
+                                    Rs{block.currencyPerPeriod}/{block.currencyPeriod}s
+                                </span>
+                            </div>
+
                         </div>
-                       
-                    </div>
                     )
                 }))}
 
@@ -168,7 +168,7 @@ function UserInterface({ currentBlock, setCurrentBlock }) {
 export default UserInterface
 
 function calculateSettings(block) {
-    switch(block) {
+    switch (block) {
         case "highrise":
             return {
                 height: (Math.random() * 4) + 1,
